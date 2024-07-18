@@ -1,12 +1,10 @@
 package org.example.agent;
 
-import static net.bytebuddy.matcher.ElementMatchers.any;
 import static net.bytebuddy.matcher.ElementMatchers.named;
 
 import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.asm.Advice;
 import org.example.agent.interceptor.Log4JInterceptor;
-import org.example.agent.interceptor.ToStringInterceptor;
 
 import java.lang.instrument.Instrumentation;
 
@@ -18,16 +16,6 @@ public class LoggerAgent {
   @SuppressWarnings("unused")
   public static void premain(String arguments, Instrumentation instrumentation) {
     loggerAgent().installOn(instrumentation);
-    toStringAgent().installOn(instrumentation);
-  }
-
-  private static AgentBuilder.Identified.Extendable toStringAgent() {
-    return new AgentBuilder.Default()
-        .type(any())
-        .transform((builder, _1, _2, _3, _4) ->
-            builder
-                .method(named("toString"))
-                .intercept(Advice.to(ToStringInterceptor.class)));
   }
 
   private static AgentBuilder.Identified.Extendable loggerAgent() {

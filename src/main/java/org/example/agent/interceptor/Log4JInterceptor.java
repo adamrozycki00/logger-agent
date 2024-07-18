@@ -19,7 +19,7 @@ public class Log4JInterceptor {
   public static final Logger LOGGER = LoggerProvider.getLogger();
   public static final String LOGGING_TMPL = "Intercepted logging: %s %s %s";
   public static final String CALL_LOCATION_TMPL = "%s:%d";
-  public static final String ARG_INFO_TMPL = "arg:%s.toString => %s";
+  public static final String ARG_INFO_TMPL = "arg: %s.toString => %s";
   public static final String NO_ARG_INFO = "(no arg detected)";
   public static final int LOGGER_STACK_INDEX = 2;
   public static final int CALLER_STACK_INDEX = 3;
