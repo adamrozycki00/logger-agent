@@ -56,8 +56,8 @@ to measure running time.
 * Running time with the agent: approx. 1300 ms
 * running time without the agent: approx. 750 ms
 
-The overhead of approximately 550 ms is largely attributable to the transform method of the Byte Buddy AgentBuilder.
-This method increases the time taken to create the Logger by 415 ms, as shown
+The overhead of approximately 550 ms is largely attributable to the `transform` method of the Byte Buddy `AgentBuilder`.
+This method increases the time taken to create a log4j `Logger` by 415 ms, as shown
 in [profile.png](src/test/resources/profile.png). Overall, the impact of the agent on performance is moderate,
 particularly because the overhead primarily occurs during the initial phase of the application.
 
