@@ -23,7 +23,7 @@ cd logger-agent
 ./mvnw clean package
 ```
 
-4. Locate the agent jar `target/logger-agent-1.0-SNAPSHOT.jar` and note its full path.
+4. Locate the agent jar `target/logger-agent-1.0-SNAPSHOT.jar` (a fat jar) and note its full path.
 5. Run the jar of another application that uses log4j, together with the agent:
 
 ```shell
@@ -47,6 +47,19 @@ java -javaagent:<agent-jar-full-path> -jar <application-jar>
     1. Intercepting the `toString` method of all objects has a very significant performance overhead.
     2. As the `toString` method can be called in different contexts, retrieving information about the caller is not
        straightforward.
+
+## Performance impact
+
+I tested a sample application both with and without the agent to assess the performance impact, using IntelliJ Profiler
+to measure running time.
+
+* Running time with the agent: approx. 1300 ms
+* running time without the agent: approx. 750 ms
+
+The overhead of approximately 550 ms is largely attributable to the transform method of the Byte Buddy AgentBuilder.
+This method increases the time taken to create the Logger by 415 ms, as shown
+in [profile.png](src/test/resources/profile.png). Overall, the impact of the agent on performance is moderate,
+particularly because the overhead primarily occurs during the initial phase of the application.
 
 ## Sources
 
