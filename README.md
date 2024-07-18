@@ -56,5 +56,5 @@ While developing the solution, I referred to the following sources:
 2. Byte Buddy GitHub repository: https://github.com/raphw/byte-buddy
 3. Byte Buddy javadoc: https://javadoc.io/doc/net.bytebuddy/byte-buddy/latest/index.html
 4. Maven Repository: https://mvnrepository.com/
-5. ChatGPT-4, for brainstorming ideas as well as proofreading plain English text..
+5. ChatGPT-4, for brainstorming ideas as well as proofreading plain English text.
 6. GitHub Copilot, for generating straightforward parts of the code.
