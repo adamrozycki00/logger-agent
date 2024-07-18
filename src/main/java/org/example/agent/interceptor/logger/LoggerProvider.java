@@ -9,6 +9,9 @@ import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
+/**
+ * Provides an internal logger for the agent.
+ */
 public class LoggerProvider {
 
   private static final String LOGGER_NAME = LoggerAgent.class.getSimpleName();

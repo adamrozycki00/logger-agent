@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 
 /**
  * Intercepts calls to the {@link org.apache.logging.log4j.spi.AbstractLogger#logIfEnabled} method,
- * which is called directly from the regular logging methods like {@link org.apache.logging.log4j.Logger#info}.
- * The interceptor logs details about the caller of the logging method.
+ * which is directly called by regular logging methods such as {@link org.apache.logging.log4j.Logger#info}.
+ * The interceptor uses an internal logger to log details about the caller of the Log4j logging method.
  */
 public class Log4JInterceptor {
 
